@@ -1,0 +1,85 @@
+<div class="contenido">
+    <h1>Gestión de Cotizaciones</h1>
+    <p>Se mostrarán a continuación todas las cotizaciones registradas</p>
+
+    <!-- FILTROS -->
+    <div class="top-actions">
+        <h4 style="margin:0; font-weight:600;">Buscar por:</h4>
+
+        <div class="filters">
+            <div>
+                <label>ID</label>
+                <input type="text" placeholder="Buscar ID" />
+            </div>
+
+            <div>
+                <label>Cliente</label>
+                <input type="text" placeholder="Buscar por cliente" />
+            </div>
+
+            <div>
+                <label>Fecha</label>
+                <input type="date" />
+            </div>
+
+            <div>
+                <label>Estado</label>
+                <select>
+                    <option>Completado</option>
+                    <option>Pendiente</option>
+                    <option>Cancelado</option>
+                </select>
+            </div>
+        </div>
+
+        <button class="btn-primary">Crear Nueva Cotización</button>
+    </div>
+
+    <!-- TABLA -->
+    <div class="card">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID Cotización</th>
+                    <th>Cliente</th>
+                    <th>Lugar</th>
+                    <th>Fecha</th>
+                    <th>Referencia</th>
+                    <th>Estado</th>
+                    <th>Administración</th>
+                    <th>Imprevistos</th>
+                    <th>Utilidades</th>
+                    <th>IVA</th>
+                    <th>Total a pagar</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>421</td>
+                    <td>Empresa ACME S.A.</td>
+                    <td>Edificio Alicante</td>
+                    <td>15/02/2025</td>
+                    <td>Cotización mantenimiento puertas eléctricas</td>
+                    <td><span class="badge ok">Completado</span></td>
+                    <td>$420.000</td>
+                    <td>$420.000</td>
+                    <td>$420.000</td>
+                    <td>$420.000</td>
+                    <td>$420.000</td>
+                    <td><button class="action-btn view">Ver</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- TOTAL -->
+    <div class="totales" style="display:flex; justify-content: space-between; gap:20px;">
+        <div>Administración: <strong>$420.000</strong></div>
+        <div>Imprevistos: <strong>$420.000</strong></div>
+        <div>Utilidades: <strong>$420.000</strong></div>
+        <div>IVA: <strong>$420.000</strong></div>
+        <div>Total: <strong>$3,200,000</strong></div>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+.sidebar {
+    width: 240px;
+    background: #1c1f26;
+    color: white;
+    height: calc(100vh - 90px); /* altura total menos el header */
+    padding-top: 20px;
+    position: sticky;
+    top: 90px; /* se queda fija bajo el header */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Logo o botón de menú */
+.sidebar-logo {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 22px;
+}
+
+/* Menú */
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu li {
+    padding: 15px 25px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    border-radius: 8px;
+    margin: 5px 10px;
+    transition: 0.2s ease;
+}
+
+.menu li:hover {
+    background: #2a2f38;
+}
