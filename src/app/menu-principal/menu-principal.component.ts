@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FooterUsuarioComponent } from "../footer-usuario/footer-usuario.component";
 import { HeaderUsuarrioComponent } from "../header-usuarrio/header-usuarrio.component";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu-principal',
@@ -9,5 +10,15 @@ import { HeaderUsuarrioComponent } from "../header-usuarrio/header-usuarrio.comp
   styleUrl: './menu-principal.component.css'
 })
 export class MenuPrincipalComponent {
+
+  constructor(private router:Router){}
+
+  GestionCotizaciones(){
+    this.router.navigate(['\cotizaciones'])
+  }
+
+  CrearCotizacion(){
+    this.router.navigate(['cotizaciones/crear']);
+  }
 
 }

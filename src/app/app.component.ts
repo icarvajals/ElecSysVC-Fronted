@@ -4,7 +4,7 @@ import { CotizacionesComponent } from "./cotizaciones/cotizaciones.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CotizacionesComponent],
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

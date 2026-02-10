@@ -1,4 +1,3 @@
-
 :host {
     --primary: #a00d0d;
     --primary-dark: #7d0a0a;
@@ -38,6 +37,7 @@ p {
     margin-bottom: 25px;
     color: var(--text-light);
 }
+
 
 /* =================== FILTROS =================== */
 .top-actions {
@@ -122,18 +122,13 @@ tbody tr:hover {
     background: #fafafa;
 }
 
-/* Estados */
+/*==================Estados================*/
 .badge {
     padding: 6px 10px;
     border-radius: 6px;
     font-size: 12px;
     font-weight: 600;
     color: white;
-}
-
-.badge.pendiente {
-  background: #facc15;
-  color: #78350f;
 }
 
 .badge.completado {
@@ -146,8 +141,7 @@ tbody tr:hover {
   color: #7f1d1d;
 }
 
-
-/* Botones de acción */
+/* =============== Botones de acción ================== */
 .action-btn {
     padding: 8px 14px;
     border-radius: 6px;
@@ -162,13 +156,147 @@ tbody tr:hover {
     background: rgb(173, 115, 15)
 }
 
-/* =================== TOTAL =================== */
-.totales {
-    margin-top: 20px;
-    padding: 18px;
-    background: var(--card);
-    border-radius: 10px;
-    font-size: 17px;
-    font-weight: 600;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+/* ============== Para formularios =======================*/
+/* TARJETA DEL FORMULARIO */
+.form-card {
+  background: #ffffff;
+  padding: 20px 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  margin-top: 15px;
+  border-left: 5px solid #7b1fa2;
+}
+
+/* ENCABEZADO */
+.form-header h2 {
+  margin: 0;
+  color: #7b1fa2;
+}
+
+.form-header p {
+  margin: 5px 0 15px;
+  color: #666;
+  font-size: 14px;
+}
+
+/* GRID DE CAMPOS */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+/* GRUPO INPUT */
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #444;
+}
+
+.form-group input {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  transition: 0.2s;
+}
+
+.form-group input:focus {
+  border-color: #7b1fa2;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(123,31,162,0.1);
+}
+
+/* BOTONES */
+.form-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-success {
+  background: #2e7d32;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-success:hover {
+  background: #1b5e20;
+}
+
+.btn-cancel {
+  background: #b0bec5;
+  color: #333;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-cancel:hover {
+  background: #90a4ae;
+}
+
+/* FILA DE EDICIÓN */
+.fila-edicion {
+  background: #fafafa;
+  animation: aparecer 0.2s ease-in-out;
+}
+
+/* ANIMACIÓN SUAVE */
+@keyframes aparecer {
+  from { opacity: 0; transform: scaleY(0.95); }
+  to { opacity: 1; transform: scaleY(1); }
+}
+
+/* ====== VARIANTE CLIENTES (COLOR AZUL) ====== */
+
+.form-card-cliente {
+  border-left: 5px solid #1565c0;
+}
+
+.form-card-cliente .form-header h2 {
+  color: #1565c0;
+}
+
+.btn-success-cliente {
+  background: #1565c0;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-success-cliente:hover {
+  background: #0d47a1;
+}
+
+.form-card-cliente input:focus,
+.form-card-cliente select:focus {
+  border-color: #1565c0;
+  box-shadow: 0 0 0 2px rgba(21,101,192,0.15);
+}
+
+/* SELECT BONITO */
+.select-estilizado {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: white;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.select-estilizado:focus {
+  border-color: #1565c0;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(21,101,192,0.15);
 }

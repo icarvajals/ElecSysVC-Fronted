@@ -1,13 +1,78 @@
 <aside class="sidebar">
-    <div class="sidebar-logo">
-        <i class="fas fa-bars"></i>
-    </div>
+  <ul class="menu">
 
-    <ul class="menu">
-        <li><i class="fas fa-home"></i> <span>Inicio</span></li>
-        <li><i class="fas fa-file-alt"></i> <span>Mis Documentos</span></li>
-        <li><i class="fas fa-user"></i> <span>Clientes</span></li>
-        <li><i class="fas fa-map-marker-alt"></i> <span>Lugares</span></li>
-        <li><i class="fas fa-cog"></i> <span>Configuración</span></li>
-    </ul>
+    <li class="menu-item" (click)="Irinicio()">
+      <div class="menu-link">
+        <i class="fas fa-home"></i>
+        <span>Inicio</span>
+      </div>
+    </li>
+
+    <li class="menu-item">
+
+      <div class="menu-link" (click)="toggleCotizaciones()">
+        <i class="fas fa-file-alt"></i>
+        <span>Cotizaciones</span>
+        <i class="fas fa-chevron-down arrow"
+           [class.open]="cotizacionesOpen"></i>
+      </div>
+
+      <ul class="submenu" *ngIf="cotizacionesOpen">
+        <li (click)="CrearCotizacion()">
+          <i class="fas fa-plus-circle"></i>
+          <span>Crear Cotización</span>
+        </li>
+
+        <li (click)="GestionCotizaciones()">
+          <i class="fas fa-list"></i>
+          <span>Gestión Cotizaciones</span>
+        </li>
+      </ul>
+
+    </li>
+
+    <!-- CLIENTES -->
+    <li class="menu-item">
+      <div class="menu-link" (click)="barraClientes()">
+        <i class="fas fa-user"></i>
+        <span>Clientes</span>
+        <i class="fas fa-chevron-down arrow" [class.open]="clientesOpen"></i>
+      </div>
+
+      <ul class="submenu" *ngIf="clientesOpen">
+        <li (click)="GestionClientes()">
+          <i class="fas fa-list"></i>
+          <span>Gestión Clientes</span>
+        </li>
+      </ul>
+
+    </li>
+
+    
+    <!-- LUGARES -->
+    <li class="menu-item">
+      <div class="menu-link" (click)="barraLugares()">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>Lugares</span>
+        <i class="fas fa-chevron-down arrow" [class.open]="lugaresOpen"></i>
+      </div>
+
+      <ul class="submenu" *ngIf="lugaresOpen">
+        <li (click)="GestionLugares()">
+          <i class="fas fa-list"></i>
+          <span>Gestión Lugares</span>
+        </li>
+      </ul>
+
+    </li>
+
+    <!-- CONFIG -->
+    <li class="menu-item">
+      <div class="menu-link">
+        <i class="fas fa-cog"></i>
+        <span>Configuración</span>
+      </div>
+    </li>
+
+  </ul>
 </aside>
