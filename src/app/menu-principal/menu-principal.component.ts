@@ -14,11 +14,18 @@ export class MenuPrincipalComponent {
   constructor(private router:Router){}
 
   GestionCotizaciones(){
-    this.router.navigate(['\cotizaciones'])
+    this.router.navigate(['cotizaciones'])
   }
 
   CrearCotizacion(){
     this.router.navigate(['cotizaciones/crear']);
   }
 
+  GestionCuentasPagar(){
+    this.router.navigate(['cuentaspagar']);
+  }
+
+  CrearCuenta(){
+    this.router.navigate(['cuentaspagar/crear']);
+  }
 }

@@ -197,19 +197,6 @@ guardarCotizacion() {
       alert('Todos los valores AIU deben ser mayores a 0');
       return false;
     }
-    if (
-      administracion > 1 ||
-      imprevistos > 1 ||
-      utilidad > 1
-    ) {
-      alert('Los valores AIU no pueden ser mayores a 1');
-      return false;
-    }
-    const total = administracion + imprevistos + utilidad;
-    if (total > 1) {
-      alert('La suma de Administración + Imprevistos + Utilidad no puede ser mayor a 1');
-      return false;
-    }
     return true;
   }
 

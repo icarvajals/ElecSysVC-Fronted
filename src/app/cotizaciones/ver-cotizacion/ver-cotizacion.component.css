@@ -407,6 +407,52 @@ h2{
     background: #a31616;
 }
 
+/* contenedor */
+.acciones {
+  white-space: nowrap;
+}
+
+/* base de todos los botones */
+.btn-icon {
+  border: none;
+  background: #f5f7fa;
+  padding: 6px 10px;
+  margin: 0 3px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.2s ease;
+}
+
+/* hover general */
+.btn-icon:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* variantes de color */
+.btn-edit:hover {
+  background: #e3f2fd;
+}
+
+.btn-delete:hover {
+  background: #542e29;
+}
+
+.btn-save:hover {
+  background: #e8f5e9;
+}
+
+.btn-cancel:hover {
+  background: #fff3e0;
+}
+.material-icons {
+  font-size: 20px;
+  vertical-align: middle;
+}
+
+
+
 /* --- TOTALES --- */
 
 .totales-card{

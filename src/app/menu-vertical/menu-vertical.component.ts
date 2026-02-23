@@ -15,6 +15,7 @@ export class MenuVerticalComponent {
 cotizacionesOpen = false;
 clientesOpen = false;
 lugaresOpen = false;
+cuentasporpagaropen = false;
 
 toggleCotizaciones() {
   this.cotizacionesOpen = !this.cotizacionesOpen;
@@ -48,6 +49,11 @@ toggleCotizaciones() {
     this.router.navigate(['lugares']);
   }
 
+  barraCuentasPagar(){
+    this.cuentasporpagaropen = !this.cuentasporpagaropen;
+  }
 
-
+  GestionarCuentas(){
+    this.router.navigate(['cuentaspagar']);
+  }
 }

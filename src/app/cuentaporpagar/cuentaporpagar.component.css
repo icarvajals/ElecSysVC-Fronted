@@ -68,65 +68,6 @@ p {
     font-size: 14px;
 }
 
-/* =========== filtro por seccion ===================*/
-
-.filtro-dashboard {
-  display: flex;
-  justify-content: center;
-  margin: 35px 0 20px 0;
-}
-
-.filtro-opciones {
-  display: flex;
-  background: white;
-  border-radius: 50px;
-  padding: 8px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-  gap: 8px;
-}
-
-.filtro-item {
-  padding: 12px 25px;
-  border-radius: 40px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: 600;
-  transition: 0.3s;
-  color: #555;
-}
-
-.filtro-item .contador {
-  background: #eee;
-  padding: 3px 10px;
-  border-radius: 20px;
-  font-size: 13px;
-}
-
-.filtro-item:hover {
-  background: #f5f5f5;
-}
-
-.filtro-item.activo {
-  background: #8B0000;
-  color: white;
-}
-
-.filtro-item.activo .contador {
-  background: rgba(255,255,255,0.2);
-  color: white;
-}
-
-/* Colores sutiles por estado */
-.filtro-item.pendiente.activo {
-  background: #d4ac0d;
-}
-
-.filtro-item.pagado.activo {
-  background: #27ae60;
-}
-
 /* =================== BOTÓN PRINCIPAL =================== */
 .btn-primary {
     align-self: end;
@@ -221,13 +162,99 @@ tbody tr:hover {
     background: rgb(173, 115, 15)
 }
 
-/* =================== TOTAL =================== */
-.totales {
-    margin-top: 20px;
-    padding: 18px;
-    background: var(--card);
-    border-radius: 10px;
-    font-size: 17px;
-    font-weight: 600;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+/* =============== Totales por cuadro =======*/
+.resumen-cuentas {
+  display: flex;
+  gap: 20px;
+  margin: 25px 0;
+}
+
+.resumen-card {
+  flex: 1;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+}
+
+.resumen-card p {
+  margin: 0;
+  font-weight: 600;
+  color: #555;
+}
+
+.resumen-card h2 {
+  margin-top: 10px;
+  font-size: 24px;
+}
+
+.resumen-card.total {
+  border-left: 6px solid #8B0000;
+}
+
+.resumen-card.pendiente {
+  border-left: 6px solid #f1c40f;
+}
+
+.resumen-card.pagado {
+  border-left: 6px solid #27ae60;
+}
+
+/* =========== filtro por seccion ===================*/
+
+.filtro-dashboard {
+  display: flex;
+  justify-content: center;
+  margin: 35px 0 20px 0;
+}
+
+.filtro-opciones {
+  display: flex;
+  background: white;
+  border-radius: 50px;
+  padding: 8px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+  gap: 8px;
+}
+
+.filtro-item {
+  padding: 12px 25px;
+  border-radius: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  transition: 0.3s;
+  color: #555;
+}
+
+.filtro-item .contador {
+  background: #eee;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+.filtro-item:hover {
+  background: #f5f5f5;
+}
+
+.filtro-item.activo {
+  background: #8B0000;
+  color: white;
+}
+
+.filtro-item.activo .contador {
+  background: rgba(255,255,255,0.2);
+  color: white;
+}
+
+/* Colores sutiles por estado */
+.filtro-item.pendiente.activo {
+  background: #d4ac0d;
+}
+
+.filtro-item.pagado.activo {
+  background: #27ae60;
 }

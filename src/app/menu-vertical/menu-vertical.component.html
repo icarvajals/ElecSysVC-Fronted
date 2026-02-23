@@ -28,7 +28,22 @@
           <span>Gestión Cotizaciones</span>
         </li>
       </ul>
+    </li>
 
+        <!-- CLIENTES -->
+    <li class="menu-item">
+      <div class="menu-link" (click)="barraCuentasPagar()">
+        <i class="fas fa-user"></i>
+        <span>Cuentas de Cobro</span>
+        <i class="fas fa-chevron-down arrow" [class.open]="cuentasporpagaropen"></i>
+      </div>
+
+      <ul class="submenu" *ngIf="cuentasporpagaropen">
+        <li (click)="GestionarCuentas()">
+          <i class="fas fa-list"></i>
+          <span>Gestión de Cuenats</span>
+        </li>
+      </ul>
     </li>
 
     <!-- CLIENTES -->
@@ -45,7 +60,6 @@
           <span>Gestión Clientes</span>
         </li>
       </ul>
-
     </li>
 
     

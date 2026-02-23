@@ -1,0 +1,182 @@
+<app-header-usuarrio></app-header-usuarrio>
+<div class="layout">
+    <app-menu-vertical></app-menu-vertical>
+
+    <div class="contenido">
+        <form>
+            <h1>Visualizacion de la cuenta de cobro</h1>
+            <p>Ha continuacion se mostrara toda la informacion pertinente a la Cuenta Creada</p>
+
+            <div class="card-section">
+                <h2>
+                    Cliente
+                </h2>
+
+                <div class="card-cliente">
+                    <div class="cliente-header">
+                        <div class="cuenta-info">
+                            <h3>Cuenta de cobro Actual</h3>
+                            <span class="codigo"># {{ cuentapagar.id_cuenta_pagar }}</span>
+                        </div>
+
+                        <div class="estado-info">
+                            <label>Estado de la Cuenta</label>
+                            <select class="select-estado" [(ngModel)]="cuentaporpagarEditable.estado"
+                                name="estadoCuenta">
+                                <option value="EN_PROCESO">EN PROCESO</option>
+                                <option value="PENDIENTE">PENDIENTE</option>
+                                <option value="PAGADO">PAGADO</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="cliente-body">
+                        <div class="cliente-left">
+                            <div class="buscador-moderno" *ngIf="editCliente">
+                                <input type="text" placeholder="Buscar cliente por nombre, NIT o teléfono"
+                                    name="buscarCliente" [(ngModel)]="textoBusquedaCliente"
+                                    (input)="buscarClientes()" />
+
+                                <div class="dropdown-clientes" *ngIf="editCliente && clientes.length > 0">
+                                    <div class="item-cliente" *ngFor="let c of clientes"
+                                        (click)="seleccionarCliente(c)">
+                                        <div class="nit">NIT: {{ c.id_cliente }}</div>
+                                        <div class="nombre">{{ c.nombre }}</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button class="boton-crear" type="button" (click)="navegarCrearCliente()">
+                                + Crear Cliente
+                            </button>
+                        </div>
+
+                        <div class="cliente-right" *ngIf="cliente">
+                            <div class="card-resumen">
+                                <h3>Cliente seleccionado</h3>
+
+                                <div class="fila">
+                                    <label>Nombre:</label>
+                                    <span>{{ cliente.nombre }}</span>
+                                </div>
+
+                                <div class="fila">
+                                    <label>NIT/CC:</label>
+                                    <span>{{ cliente.id_cliente }}</span>
+                                </div>
+
+                                <div class="fila">
+                                    <label>Correo:</label>
+                                    <span>{{ cliente.correo }}</span>
+                                </div>
+
+                                <button (click)="editarCliente()" class="btn-cambiar">
+                                    Cambiar cliente
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-section detalle-proyecto">
+                <h2>Detalle Proyecto</h2>
+                <div class="header-detalle">
+
+                    <div class="ref-group">
+                        <label>Referencia:</label>
+                        <input type="text" placeholder="Nombre o referencia del proyecto" name="referencia"
+                            [(ngModel)]="cuentaporpagarEditable.referencia" />
+                    </div>
+
+                    <div class="resumen-cuenta">
+                        <div class="resumen-box">
+                            <span class="label">Total a cobrar</span>
+                            <span class="valor">{{valorApagar | currency:'COP'}}</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <table class="tabla-detalle">
+                    <thead>
+                        <tr>
+                            <th>Descripción</th>
+                            <th>Valor</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr *ngFor="let d of editDetalleCuenta; let i = index">
+                            <td> <textarea class="textarea-descripcion" name="descripcion{{i}}" rows="1"
+                                    [(ngModel)]="d.descripcion" [disabled]="!d.editando"></textarea></td>
+                            <td><input type="number" name="valor{{i}}" [(ngModel)]="d.valor" [disabled]="!d.editando">
+                            </td>
+                            <td class="acciones">
+                                <ng-container *ngIf="!d.editando">
+                                    <button type="button" class="btn-icon btn-edit" title="Editar"
+                                        (click)="editarFila(d)">
+                                        <span class="material-icons">edit</span>
+                                    </button>
+
+                                    <button type="button" class="btn-icon btn-delete" title="Eliminar"
+                                        (click)="eliminarFila(d, i)">
+                                        <span class="material-icons">delete</span>
+                                    </button>
+
+                                </ng-container>
+
+                                <ng-container *ngIf="d.editando">
+
+                                    <button type="button" class="btn-icon btn-save" title="Guardar"
+                                        (click)="guardarFila(d)">
+                                        <span class="material-icons">save</span>
+                                    </button>
+
+                                    <button type="button" class="btn-icon btn-cancel" title="Cancelar"
+                                        (click)="cancelarFila(d, i)">
+                                        <span class="material-icons">close</span>
+                                    </button>
+                                </ng-container>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+                <button id="add" class="btn-add" type="button" (click)="agregarFila()">+ Agregar fila</button>
+            </div>
+
+            <div class="card-section">
+                <h2>Notas</h2>
+                <table class="tabla-detalle">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody id="items">
+                        <tr>
+                            <td>1</td>
+                            <td>
+                                <textarea class="textarea-notas" rows="4" placeholder="Ingrese las Notas" name="nota"
+                                    [(ngModel)]="cuentaporpagarEditable.nota">
+                                </textarea>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+            <div class="card-section">
+                <div class="opciones-document">
+                    <button class="crear" type="button" (click)="actualizarCuenta()">Actualizar Cotizacion</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

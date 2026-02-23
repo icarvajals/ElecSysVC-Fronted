@@ -40,6 +40,25 @@
             <button class="btn-primary" (click)="crearCotizacion()">Crear Nueva Cotización</button>
         </div>
 
+        <div class="filtro-dashboard">
+            <div class="filtro-opciones">
+                <div class="filtro-item" [class.activo]="filtroActivo === 'TODAS'" (click)="filtrarEstado('TODAS')">
+                    <span class="titulo">Todas</span>
+                    <span class="contador">{{ cotizaciones.length }}</span>
+                </div>
+
+                <div class="filtro-item pendiente" [class.activo]="filtroActivo === 'PENDIENTE'"
+                    (click)="filtrarEstado('PENDIENTE')">
+                    <span class="titulo">Pendientes</span>
+                </div>
+
+                <div class="filtro-item pagado" [class.activo]="filtroActivo === 'RECHAZADO'"
+                    (click)="filtrarEstado('RECHAZADO')">
+                    <span class="titulo">Rechazado</span>
+                </div>
+            </div>
+        </div>
+
         <!-- TABLA -->
         <div class="card">
                 <table class="cot-table">
@@ -61,7 +80,7 @@
                     </thead>
 
                     <tbody>
-                    @for (cotizacion of cotizaciones; track cotizacion.id_cotizacion) {
+                    @for (cotizacion of cotizacionesFiltradas; track cotizacion.id_cotizacion) {
                         <tr>
                             <td>{{cotizacion.id_cotizacion}}</td>
                             <td>{{clietesMap.get(cotizacion.id_cliente)?.nombre}}</td>

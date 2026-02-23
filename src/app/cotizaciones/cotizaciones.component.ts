@@ -29,7 +29,7 @@ export class CotizacionesComponent implements OnInit{
   clietesMap = new Map<number, EntidadCliente>();
   lugaresMap = new Map<number, EntidadLugar>();
 
-  constructor(private route: Router, private ruta: ActivatedRoute){}
+  constructor(private route: Router){}
 
   ngOnInit(){
     this.obtenerCotizaciones();
@@ -109,5 +109,20 @@ export class CotizacionesComponent implements OnInit{
 
   verCotizacion(id: number){
     this.route.navigate(['cotizaciones/ver', id])
+  }
+
+  filtroActivo: string = 'TODAS';
+  cotizacionesFiltradas: EntidadCotizaciones[] = [];
+
+  filtrarEstado(estado: string): void{
+    this.filtroActivo = estado;
+
+    if(estado === 'TODAS'){
+      this.cotizacionesFiltradas = this.cotizaciones;
+      return;
+    }
+
+    this.cotizacionesFiltradas = this.cotizaciones
+    .filter(cotizacion => cotizacion.estado === estado);
   }
 }
