@@ -44,7 +44,7 @@ export class CuentaporpagarComponent {
           console.error("Error al obtener la informacion de clientes", error);
         }
       }
-    )
+    );
   }
 
   obtenerCuentas(): void {
@@ -59,7 +59,7 @@ export class CuentaporpagarComponent {
           console.error("Error al obtener la informacion", err);
         }
       }
-    )
+    );
   }
 
   evaluarEstado(estado: string): string {

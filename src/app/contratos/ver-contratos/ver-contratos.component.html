@@ -1,0 +1,94 @@
+<div class="modal-overlay" *ngIf="mostrar">
+
+  <div class="modal-contrato">
+
+    <div class="modal-header">
+      <h2>Detalle del Contrato</h2>
+      <button class="cerrar" (click)="cerrar()">✖</button>
+    </div>
+
+    <!-- EMPLEADO -->
+    <div class="seccion">
+
+      <h3>Información del Empleado</h3>
+
+      <div class="grid">
+
+        <div>
+          <label>Trabajador</label>
+          <p>{{contrato?.trabajador_nombre}}</p>
+        </div>
+
+        <div>
+          <label>Fecha nacimiento</label>
+          <p>{{contrato?.fecha_nacimiento}}</p>
+        </div>
+
+        <div>
+          <label>Lugar nacimiento</label>
+          <p>{{contrato?.lugar_nacimiento}}</p>
+        </div>
+
+        <div>
+          <label>Edad</label>
+          <p>{{contrato?.edad}}</p>
+        </div>
+
+        <div>
+          <label>Estado Civil</label>
+          <p>{{contrato?.estadoCivil}}</p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- CONTRATO -->
+
+    <div class="seccion">
+
+      <h3>Información del Contrato</h3>
+
+      <div class="grid">
+
+        <div>
+          <label>Cargo</label>
+          <p>{{contrato?.cargo}}</p>
+        </div>
+
+        <div>
+          <label>Sueldo</label>
+          <p>{{contrato?.sueldo | currency:'COP'}}</p>
+        </div>
+
+        <div>
+          <label>Fecha Expedición</label>
+          <p>{{contrato?.fecha_expedicion}}</p>
+        </div>
+
+        <div>
+          <label>Fecha Inicio</label>
+          <p>{{contrato?.fecha_iniciacion}}</p>
+        </div>
+
+        <div>
+          <label>Tipo Contrato</label>
+          <p>{{contrato?.tipo_contrato}}</p>
+        </div>
+
+        <div>
+          <label>Estado</label>
+          <p>{{contrato?.estado}}</p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="footer">
+      <button class="btn-cerrar" (click)="cerrar()">Cerrar</button>
+    </div>
+
+  </div>
+
+</div>

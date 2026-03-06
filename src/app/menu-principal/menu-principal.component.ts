@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FooterUsuarioComponent } from "../footer-usuario/footer-usuario.component";
 import { HeaderUsuarrioComponent } from "../header-usuarrio/header-usuarrio.component";
 import { Router } from '@angular/router';
+import { ModalContratoService } from '../contratos/ContratosClases/modal-contrato.service';
 
 @Component({
   selector: 'app-menu-principal',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class MenuPrincipalComponent {
 
-  constructor(private router:Router){}
+  constructor(private router:Router, private flotanteServiceContrato: ModalContratoService){}
 
   GestionCotizaciones(){
     this.router.navigate(['cotizaciones'])
@@ -27,5 +28,17 @@ export class MenuPrincipalComponent {
 
   CrearCuenta(){
     this.router.navigate(['cuentaspagar/crear']);
+  }
+
+  GestionarContratos(){
+    this.router.navigate(['contratos']);
+  }
+
+  CrearContrato(){
+    this.router.navigate(['contratos']).then(() => {
+      setTimeout(() => {
+        this.flotanteServiceContrato.abrirFlotante();
+      }, 100);
+    });
   }
 }

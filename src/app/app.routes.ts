@@ -12,6 +12,7 @@ import { LugarComponent } from './lugar/lugar.component';
 import { CuentaporpagarComponent } from './cuentaporpagar/cuentaporpagar.component';
 import { CrearCuentaComponent } from './cuentaporpagar/crear-cuenta/crear-cuenta.component';
 import { VerCuentaComponent } from './cuentaporpagar/ver-cuenta/ver-cuenta.component';
+import { ContratosComponent } from './contratos/contratos.component';
 
 export const routes: Routes = [
     {path: '', component: LoginComponent},
@@ -29,6 +30,8 @@ export const routes: Routes = [
     {path: 'cuentaspagar', component: CuentaporpagarComponent},
     {path: 'cuentaspagar/crear', component: CrearCuentaComponent},
     {path: 'cuentaspagar/ver/:id', component: VerCuentaComponent}, 
+
+    {path: "contratos", component: ContratosComponent}
 ];
 
 @NgModule(
