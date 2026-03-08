@@ -9,12 +9,10 @@
     </li>
 
     <li class="menu-item">
-
       <div class="menu-link" (click)="toggleCotizaciones()">
         <i class="fas fa-file-alt"></i>
         <span>Cotizaciones</span>
-        <i class="fas fa-chevron-down arrow"
-           [class.open]="cotizacionesOpen"></i>
+        <i class="fas fa-chevron-down arrow" [class.open]="cotizacionesOpen"></i>
       </div>
 
       <ul class="submenu" *ngIf="cotizacionesOpen">
@@ -30,7 +28,14 @@
       </ul>
     </li>
 
-        <!-- CLIENTES -->
+    <li class="menu-item" (click)="GestionarContratos()">
+      <div class="menu-link">
+        <i class="fas fa-home"></i>
+        <span>Contratos</span>
+      </div>
+    </li>
+
+    <!-- CLIENTES -->
     <li class="menu-item">
       <div class="menu-link" (click)="barraCuentasPagar()">
         <i class="fas fa-user"></i>
@@ -62,7 +67,7 @@
       </ul>
     </li>
 
-    
+
     <!-- LUGARES -->
     <li class="menu-item">
       <div class="menu-link" (click)="barraLugares()">

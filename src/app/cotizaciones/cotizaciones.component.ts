@@ -42,6 +42,7 @@ export class CotizacionesComponent implements OnInit{
       {
         next: (datos) => {
           this.cotizaciones = datos;
+          this.filtrarEstado("TODAS");
         }, 
         error: (error) => {
           console.error("Error al obtener la informacion", error);

@@ -98,46 +98,46 @@ export class CrearCotComponent {
     );
   }
 
-  get ivaDirecto(): number{
-    if(!this.existIva) return 0;
+  get ivaDirecto(): number {
+    if (!this.existIva) return 0;
     return this.subtotal * 0.19;
   }
 
-  get TotalconIva(): number{
-    if(!this.existIva) return 0;
+  get TotalconIva(): number {
+    if (!this.existIva) return 0;
     return this.subtotal + this.ivaDirecto;
   }
 
   get administracion(): number {
-  if (this.existIva) return 0;
-  return this.subtotal * (this.aiuForm.administracion / 100);
-}
+    if (this.existIva) return 0;
+    return this.subtotal * (this.aiuForm.administracion / 100);
+  }
 
-get imprevistos(): number {
-  if (this.existIva) return 0;
-  return this.subtotal * (this.aiuForm.imprevistos / 100);
-}
+  get imprevistos(): number {
+    if (this.existIva) return 0;
+    return this.subtotal * (this.aiuForm.imprevistos / 100);
+  }
 
-get utilidad(): number {
-  if (this.existIva) return 0;
-  return this.subtotal * (this.aiuForm.utilidad / 100);
-}
+  get utilidad(): number {
+    if (this.existIva) return 0;
+    return this.subtotal * (this.aiuForm.utilidad / 100);
+  }
 
-get ivaSobreUtilidad(): number {
-  if (this.existIva) return 0;
-  return this.utilidad * 0.19;
-}
+  get ivaSobreUtilidad(): number {
+    if (this.existIva) return 0;
+    return this.utilidad * 0.19;
+  }
 
-get totalAIU(): number {
-  if (this.existIva) return 0;
-  return this.subtotal +
-         this.administracion +
-         this.imprevistos +
-         this.utilidad +
-         this.ivaSobreUtilidad;
-}
+  get totalAIU(): number {
+    if (this.existIva) return 0;
+    return this.subtotal +
+      this.administracion +
+      this.imprevistos +
+      this.utilidad +
+      this.ivaSobreUtilidad;
+  }
 
-guardarCotizacion() {
+  guardarCotizacion() {
     if (!this.validarClienteYLugar()) return;
     if (!this.validarDetalles()) return;
     if (!this.validarAIU()) return;
@@ -157,7 +157,11 @@ guardarCotizacion() {
     };
 
     if (!this.existIva) {
-      request.aiudto = this.aiuForm;
+      request.aiudto = {
+        administracion: this.aiuForm.administracion / 100,
+        imprevistos: this.aiuForm.imprevistos / 100,
+        utilidad: this.aiuForm.utilidad / 100
+      };
     }
 
     this.cotizacionService.crearCotizacion(request).subscribe({
@@ -226,16 +230,16 @@ guardarCotizacion() {
   }
 
   autoResize(event: Event): void {
-  const textarea = event.target as HTMLTextAreaElement;
-  textarea.style.height = 'auto';
-  textarea.style.height = textarea.scrollHeight + 'px';
+    const textarea = event.target as HTMLTextAreaElement;
+    textarea.style.height = 'auto';
+    textarea.style.height = textarea.scrollHeight + 'px';
   }
 
-  navegarCliente(){
+  navegarCliente() {
     this.route.navigate(['clientes/crear']);
   }
 
-  navegarLugares(){
+  navegarLugares() {
     this.route.navigate(['lugares']);
   }
 }

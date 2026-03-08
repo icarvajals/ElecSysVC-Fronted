@@ -56,4 +56,8 @@ toggleCotizaciones() {
   GestionarCuentas(){
     this.router.navigate(['cuentaspagar']);
   }
+
+  GestionarContratos(){
+    this.router.navigate(['contratos']);
+  }
 }
